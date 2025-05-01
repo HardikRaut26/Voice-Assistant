@@ -1,4 +1,7 @@
+# Ignore HTML, static files, and TeX from language stats
+*.html linguist-vendored
 templates/* linguist-vendored
 static/* linguist-vendored
-*.html linguist-vendored
+
 *.tex linguist-detectable=false
+docs/* linguist-detectable=false

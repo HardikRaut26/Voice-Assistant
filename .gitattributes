@@ -1,4 +1,4 @@
 templates/* linguist-vendored
 static/* linguist-vendored
 *.html linguist-vendored
-*.TeX linguist-vendored
+*.tex linguist-detectable=false

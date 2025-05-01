@@ -8,3 +8,6 @@ static/* linguist-vendored
 *.ltx linguist-detectable=false
 *.cls linguist-detectable=false
 *.sty linguist-detectable=false
+# Ignore .toc files from TeX language classification
+*.toc linguist-detectable=false
+

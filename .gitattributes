@@ -3,7 +3,8 @@
 templates/* linguist-vendored
 static/* linguist-vendored
 
-# Ignore LaTeX files and folders
+# Explicitly tell GitHub Linguist: no TeX here
 *.tex linguist-detectable=false
-docs/* linguist-detectable=false
-report/* linguist-detectable=false
+*.ltx linguist-detectable=false
+*.cls linguist-detectable=false
+*.sty linguist-detectable=false

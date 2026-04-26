@@ -356,7 +356,6 @@ This project is open-source and available under the [MIT License](LICENSE).
 
 <div align="center">
 
-**Made with ❤️ by [Hardik Raut](https://github.com/HardikRaut26)**
 
 ⭐ *Star this repo if you found it useful!* ⭐
 

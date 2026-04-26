@@ -1,6 +1,10 @@
 import requests
 import json
 import pyttsx3
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -11,14 +15,15 @@ def speak(audio):
     engine.say(audio)
     engine.runAndWait()
 
-#89e71a0d6446433884aace674fd4d767
+NEWS_API_KEY = os.getenv("NEWS_API_KEY")
+
 def latestnews():
-    api_dict = {"business" :"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=89e71a0d6446433884aace674fd4d767" ,#Enter Your OWN API ,
-            "entertainment" : "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=89e71a0d6446433884aace674fd4d767",#Enter Your OWN API ,
-            "health" : "https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey=89e71a0d6446433884aace674fd4d767",#Enter Your OWN API,
-            "science" :"https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey=89e71a0d6446433884aace674fd4d767",#Enter Your OWN API,
-            "sports" :"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey=89e71a0d6446433884aace674fd4d767",#Enter Your OWN API,
-            "technology" :"https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey=89e71a0d6446433884aace674fd4d767"#Enter Your OWN API
+    api_dict = {"business" :f"https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey={NEWS_API_KEY}",
+            "entertainment" : f"https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey={NEWS_API_KEY}",
+            "health" : f"https://newsapi.org/v2/top-headlines?country=in&category=entertainment&apiKey={NEWS_API_KEY}",
+            "science" :f"https://newsapi.org/v2/top-headlines?country=in&category=science&apiKey={NEWS_API_KEY}",
+            "sports" :f"https://newsapi.org/v2/top-headlines?country=in&category=sports&apiKey={NEWS_API_KEY}",
+            "technology" :f"https://newsapi.org/v2/top-headlines?country=in&category=technology&apiKey={NEWS_API_KEY}"
 }
 
     content = None

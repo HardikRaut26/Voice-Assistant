@@ -9,6 +9,11 @@ import os
 from datetime import timedelta
 from datetime import datetime
 import pyautogui
+from dotenv import load_dotenv
+
+load_dotenv()
+
+WHATSAPP_CONTACT_1 = os.getenv("WHATSAPP_CONTACT_1")
 
 engine = pyttsx3.init("sapi5")
 voices = engine.getProperty("voices")
@@ -44,7 +49,7 @@ def sendMessage():
         message = str(input("Enter the message- "))
         time_hour = int(datetime.now().strftime("%H"))
         time_min = int((datetime.now()+timedelta(minutes = 2)).strftime("%M"))
-        pywhatkit.sendwhatmsg("+917030132669", message, time_hour=time_hour, time_min=time_min)
+        pywhatkit.sendwhatmsg(WHATSAPP_CONTACT_1, message, time_hour=time_hour, time_min=time_min)
     elif a == 2:
         pass
 

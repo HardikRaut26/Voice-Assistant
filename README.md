@@ -1,4 +1,4 @@
-<![CDATA[<div align="center">
+<div align="center">
 
 # 🎙️ VoiceAI — Intelligent Voice Assistant
 
@@ -26,9 +26,9 @@
 - [Installation](#-installation)
 - [Usage](#-usage)
 - [Voice Commands Reference](#-voice-commands-reference)
-- [API Keys Setup](#-api-keys-setup)
-- [Screenshots](#-screenshots)
+- [API Keys & Environment Setup](#-api-keys--environment-setup)
 - [Contributing](#-contributing)
+- [Known Limitations](#-known-limitations)
 - [License](#-license)
 
 ---
@@ -88,6 +88,7 @@ The assistant uses **Google Speech Recognition** for converting speech to text a
 | **Speedtest-cli** | Internet speed measurement |
 | **pynput** | System volume control |
 | **Tkinter + Pillow** | Intro GIF animation window |
+| **python-dotenv** | Environment variable management |
 
 ---
 
@@ -111,6 +112,11 @@ VoiceAI/
 ├── FocusMode.py         # 🎯 Block distracting websites (admin mode)
 ├── Installer.py         # 📦 Quick dependency installer
 │
+├── .env                 # 🔐 API keys & secrets (git-ignored)
+├── .env.example         # 📄 Template for environment variables
+├── .gitignore           # 🚫 Files excluded from version control
+├── .gitattributes       # 🏷️ Git language detection config
+│
 ├── Alarmtext.txt        # Temp file for alarm time storage
 ├── tasks.txt            # Saved daily tasks/schedule
 ├── Remember.txt         # Notes the assistant remembers
@@ -122,13 +128,7 @@ VoiceAI/
 ├── notification.mp3     # 🔔 Notification sound effect
 ├── speakintro.gif       # 🎬 Startup animation GIF
 ├── ironsnap2.gif        # 🎬 Additional animation asset
-├── ss.jpg               # 📸 Last saved screenshot
-│
-├── main.spec            # PyInstaller build spec
-├── main.exe             # Pre-built Windows executable
-├── build/               # PyInstaller build artifacts
-├── dist/                # PyInstaller distribution output
-└── .gitattributes       # Git language detection config
+└── ss.jpg               # 📸 Last saved screenshot
 ```
 
 ---
@@ -157,13 +157,20 @@ cd Voice-Assistant
 pip install pyttsx3 SpeechRecognition pyaudio requests beautifulsoup4 pyautogui plyer pygame speedtest-cli translate pywhatkit wolframalpha pyperclip pynput wikipedia googletrans==4.0.0-rc1 gTTS playsound Pillow python-dotenv
 ```
 
-> [!NOTE]
-> **PyAudio on Windows:** If `pip install pyaudio` fails, download the appropriate `.whl` file from [Unofficial Windows Binaries](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) and install it manually:
+> **Note:** If `pip install pyaudio` fails on Windows, download the appropriate `.whl` file from [Unofficial Windows Binaries](https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyaudio) and install it manually:
 > ```bash
 > pip install PyAudio‑0.2.14‑cp312‑cp312‑win_amd64.whl
 > ```
 
-### 3. Run the Assistant
+### 3. Set Up Environment Variables
+
+```bash
+cp .env.example .env
+```
+
+Open the `.env` file and add your API keys (see [API Keys & Environment Setup](#-api-keys--environment-setup) below).
+
+### 4. Run the Assistant
 
 ```bash
 python main.py
@@ -306,21 +313,9 @@ WHATSAPP_CONTACT_1=+91XXXXXXXXXX
 | `WOLFRAM_ALPHA_APP_ID` | Calculator | Wolfram Alpha | [products.wolframalpha.com](https://products.wolframalpha.com/api/) |
 | `WHATSAPP_CONTACT_1` | WhatsApp Messages | — | Your contact's phone number |
 
-> [!IMPORTANT]
-> You **must** register for free API keys to use the News and Calculator features. The `.env` file is **never pushed to GitHub** — your secrets stay safe.
+> **Important:** You **must** register for free API keys to use the News and Calculator features. The `.env` file is **never pushed to GitHub** — your secrets stay safe.
 
-> [!CAUTION]
-> If you previously committed code with hardcoded API keys, consider rotating (regenerating) those keys on the respective platforms, as they may have been exposed in your Git history.
-
----
-
-## 📸 Screenshots
-
-*The assistant plays an animated intro on startup:*
-
-<!-- Add your screenshots here -->
-<!-- ![VoiceAI Startup](screenshots/startup.png) -->
-<!-- ![VoiceAI Commands](screenshots/commands.png) -->
+> **⚠️ Caution:** If you previously committed code with hardcoded API keys, consider rotating (regenerating) those keys on the respective platforms, as they may have been exposed in your Git history.
 
 ---
 
@@ -366,4 +361,3 @@ This project is open-source and available under the [MIT License](LICENSE).
 ⭐ *Star this repo if you found it useful!* ⭐
 
 </div>
-]]>
